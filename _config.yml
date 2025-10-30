@@ -1,3 +1,4 @@
 title: personal learning blog
 description: A place for my random learnings related to CS and other topics of interest
-theme: minima # A simple, clean, built-in Jekyll theme
+remote_theme: benbalter/retlab 
+permalink: /:categories/:title/
