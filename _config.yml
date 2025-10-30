@@ -1,4 +1,32 @@
-title: personal learning blog
-description: A place for my random learnings related to CS and other topics of interest
 remote_theme: benbalter/retlab 
-permalink: /:categories/:title/
+title: lucas nyc
+description: A random spot on the internet for my random learning posts
+
+lang: en-US 
+nav_pages:
+  - index.html
+  - posts.md
+  - about.md
+  - contact.md
+defaults:
+  -
+    scope:
+      path: ""
+      type: "posts"
+    values:
+      layout: post
+      comments: true
+  -
+    scope:
+      path: ""
+      type: "pages"
+    values:
+      layout: page
+      comments: false
+
+# Plugins
+plugins:
+  - jekyll-seo-tag
+  - jekyll-avatar
+  - jekyll-github-metadata
+  - jekyll-feed
