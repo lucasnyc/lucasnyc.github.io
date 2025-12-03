@@ -7,6 +7,24 @@
     <link rel="stylesheet" href="{{ '/assets/css/style.css?v=' | append: site.github.build_revision | relative_url }}" media="screen" type="text/css">
     <link rel="stylesheet" href="{{ '/assets/css/print.css' | relative_url }}" media="print" type="text/css">
     {% seo %}
+    
+    <style>
+      header h1 a {
+        text-decoration: none !important;
+        border: none !important;
+      }
+      h1, h2, h3, h4, h5, h6 {
+        text-decoration: none !important;
+        border-bottom: none !important;
+      }
+      a {
+        text-decoration: none !important;
+      }
+      /* Optional: Adds underline only when you hover over a link */
+      a:hover {
+        text-decoration: underline !important;
+      }
+    </style>
   </head>
 
   <body>
@@ -17,11 +35,8 @@
         <h2>{{ site.description }}</h2>
 
         <section id="downloads">
-          {% if site.show_downloads %}
-            <a href="{{ site.github.zip_url }}" class="btn">Download as .zip</a>
-            <a href="{{ site.github.tar_url }}" class="btn">Download as .tar.gz</a>
-          {% endif %}
-          <a href="{{ site.github.repository_url }}" class="btn btn-github"><span class="icon"></span>View on GitHub</a>
+          <a href="mailto:{{ site.email }}" class="btn">Email Me</a>
+          <a href="https://github.com/{{ site.github_username }}" class="btn">GitHub</a>
         </section>
       </div>
     </header>
