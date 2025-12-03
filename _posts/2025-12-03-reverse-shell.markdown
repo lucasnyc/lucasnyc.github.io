@@ -1,6 +1,6 @@
 ---
 layout: post
-title:  "Reverse Shell"
+title:  "reverse shell"
 date:   2025-12-03 13:25:06 +0800
 categories: 
 ---
@@ -78,3 +78,7 @@ These are more obvious in the Bash version, where we can see redirectrs in stdin
 
 [ref_1]: https://swisskyrepo.github.io/InternalAllTheThings/cheatsheets/shell-reverse-cheatsheet/#php
 [ref_2]: https://stackoverflow.com/questions/24793069/what-does-do-in-bash
+
+### References
+1. https://swisskyrepo.github.io/InternalAllTheThings/cheatsheets/shell-reverse-cheatsheet/#php
+2. https://stackoverflow.com/questions/24793069/what-does-do-in-bash
