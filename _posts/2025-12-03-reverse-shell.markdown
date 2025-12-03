@@ -20,7 +20,7 @@ I had setup the listener with command below:
 nc -lvp 6969
 
 # 2. client (on pc 2)
-nc -nv {listener's ip address} 6969
+nc -nv {listener\'s ip address} 6969
 {% endhighlight %}
 
 Some explanation of the command above:
