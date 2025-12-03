@@ -28,7 +28,7 @@ url: "https://lucasnyc.github.io/" # the base hostname & protocol for your site,
 github_username:  lucasnyc
 
 # Build settings
-theme: minima
+# theme: minima
 remote-theme: pages-themes/hacker@v0.2.0
 plugins:
   - jekyll-remote-theme # https://www.rubydoc.info/gems/jekyll-theme-hacker/0.2.0
