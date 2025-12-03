@@ -24,7 +24,7 @@ description: >- # this means to ignore newlines until "baseurl:"
   Random spot on the web for my random learnings.
   Do email me if you noticed details of my posts to be incrorect.
 baseurl: "" # the subpath of your site, e.g. /blog
-url: "https://lucasnyc.github.io/" # the base hostname & protocol for your site, e.g. http://example.com
+url: "https://yuchengng.com/" # the base hostname & protocol for your site, e.g. http://example.com
 github_username:  lucasnyc
 
 # Build settings
@@ -33,8 +33,8 @@ remote_theme: pages-themes/hacker@v0.2.0
 plugins:
   - jekyll-feed
   - jekyll-remote-theme # https://www.rubydoc.info/gems/jekyll-theme-hacker/0.2.0
-minima:
-  skin: dark
+# minima:
+#   skin: dark
 
 # Exclude from processing.
 # The following items will not be processed, by default.
