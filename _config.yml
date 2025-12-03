@@ -31,7 +31,7 @@ github_username:  lucasnyc
 # theme: minima
 remote-theme: pages-themes/hacker@v0.2.0
 plugins:
-  - jekyll-remote-theme
+  - jekyll-remote-theme # https://www.rubydoc.info/gems/jekyll-theme-hacker/0.2.0
   # - jekyll-feed
 minima:
   skin: dark
