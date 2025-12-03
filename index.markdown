@@ -5,7 +5,7 @@
 layout: default
 ---
 
-[about me](./about.markdown)
+##[about me](./about.markdown)
 
 ## learnings ordered from most recent (top) to oldest (bottom)
 <ul>
