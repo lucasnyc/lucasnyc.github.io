@@ -81,4 +81,4 @@ These are more obvious in the Bash version, where we can see redirects in stdin,
 
 ### References
 1. [Reverse Shell Cheatsheet](https://swisskyrepo.github.io/InternalAllTheThings/cheatsheets/shell-reverse-cheatsheet/#php)
-2. [What $ means](https://stackoverflow.com/questions/24793069/what-does-do-in-bash)
+2. [What &\< means](https://stackoverflow.com/questions/24793069/what-does-do-in-bash)
