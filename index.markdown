@@ -5,10 +5,9 @@
 layout: default
 ---
 
-[A little more about me](./about.md)
+[about me](./about.markdown)
 
-## Learnings
-### learnings ordered from most recent (top) to oldest (bottom)
+## learnings ordered from most recent (top) to oldest (bottom)
 <ul>
   {% for post in site.posts %}
     <li>
