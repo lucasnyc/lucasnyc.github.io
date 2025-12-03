@@ -25,19 +25,19 @@ nc -nv {listener's ip address} 6969
 
 Some explanation of the command above:
 ### Listener
-nc  =   Ncat tool
-flags
--l  =   --listen, bind and listens to incoming connections, making pc1 a listener
--v  =   --verbose, just set verbosity level to have some info of whats going on
--p  =   --source-port, specify the source port, which in this case is port 6969
+nc  =   Ncat tool  
+flags  
+-l  =   --listen, bind and listens to incoming connections, making pc1 a listener  
+-v  =   --verbose, just set verbosity level to have some info of whats going on  
+-p  =   --source-port, specify the source port, which in this case is port 6969  
 
 ### Client
--n  =   --nodns, takes the IP as it is, does not resolve to hostnames
+-n  =   --nodns, takes the IP as it is, does not resolve to hostnames  
 Listener's ip address can be obtained from many source, one simple one is `ip a` and retrieve from inet.
 
-With the verbose flag, we should expect the following output from listener and client:
-Listener: `Ncat: Connection from {client's ip}:{client's port}`
-Client: `Connection to {listener's ip} {listener's port} port [tcp/*] succeeded!`
+With the verbose flag, we should expect the following output from listener and client:  
+Listener: `Ncat: Connection from {client's ip}:{client's port}`  
+Client: `Connection to {listener's ip} {listener's port} port [tcp/*] succeeded!`  
 Now you can try by typing in a text box, by sending "hello" or whatever you want to see it reflected it on the other pc. It works bidirectionally.
 
 ## Executing commands with Ncat (Level 1)
