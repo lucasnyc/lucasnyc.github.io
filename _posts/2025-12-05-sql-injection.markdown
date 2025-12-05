@@ -58,7 +58,7 @@ Address Link: https://0abf004603095fb5801c173a004b00d5.web-security-academy.net/
 Address Link: https://0abf004603095fb5801c173a004b00d5.web-security-academy.net/filter?category=Clothing%2c+shoes+and+accessories%27UNION+SELECT%20banner,+NULL%20FROM%20v$version%20--
 
 {% endhighlight %}
-![Poof, there we got it](../assets/images/portswigger1_database.png)
+![Poof, there we got it]({{ site.url }}/assets/images/portswigger1_database.png)
 
 In step 1, when we have a SQL vulnerabilty. We first have to do a enumeration check, to understand how many arguments are we allowed to supply. We can use method 1 by using `' UNION SELECT NULL, NULL` and increment the NULL accordingly. The (number of NULL that causes Internal Server Error) - 1 = `num of arguments`. We also need to specify `FROM DUAL` in this, because its Oracle. And this is specific to Oracle only.
 
