@@ -92,7 +92,11 @@ https://0a7800e4038a767380d894e500860082.web-security-academy.net/filter?categor
 ![final_results]({{ site.url }}/assets/images/portswigget1_final.png)
 *Final Results from Lab 3*
 
+This is where things start to get interestings, using the same methods from Lab 2, we are able to identiyf the number of parameters, paramater types and database type. Knowing the underlying database is PSQL, we enumerate the tables available with `SELECT column_name, NULL FROM information_schema.tables--`. We can see a lot of different tables, with `users` being the useful one.
 
+In Step 5, we then use the tables, and retrieve the columns in the table. The query is `SELECT table_name, NULL FROM information_schema.columns WHERE table_name='users'--`. We found `email`, `username` and `password`.
+
+In Step 6, use the query `SELECT username, password FROM users--` to get the username and password. To add a little, we can also concatenate them with PSQL syntax. `SELECT username || '~' || password, NULL FROM users--` to do it. Not necessary but useful to know.
 
 [ref_1]: https://portswigger.net/web-security/sql-injection/cheat-sheet
 [ref_2]: https://portswigger.net/web-security/sql-injection/examining-the-database/lab-querying-database-version-oracle
